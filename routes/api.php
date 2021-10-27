@@ -38,6 +38,10 @@ Route::post('menus/{menu_id}/menu-item', [
     'uses' => 'App\Http\Controllers\MenuItemController@store'
 ]);
 
+Route::get('menus/{menu_id}/menu-item/{id}', [
+    'uses' => 'App\Http\Controllers\MenuItemController@show'
+]);
+
 Route::post('menus/{menu_id}/menu-item/{id}', [
     'uses' => 'App\Http\Controllers\MenuItemController@edit'
 ]);

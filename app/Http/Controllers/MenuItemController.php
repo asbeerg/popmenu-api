@@ -53,8 +53,14 @@ class MenuItemController extends Controller
      * @param  \App\Models\MenuItem  $menuItem
      * @return \Illuminate\Http\Response
      */
-    public function show(MenuItem $menuItem)
+    public function show(Request $request, int $menuId, int $id)
     {
+        $menuItem = MenuItem::where('menu_id', $menuId)->where('id', $id)->first();
+
+        if (!$menuItem) {
+            abort(404);
+        }
+
         return $menuItem;
     }
 
